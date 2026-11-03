@@ -15,7 +15,8 @@
     "bench:generate": "tsx scripts/generate.ts",
     "bench:publish": "tsx scripts/publish-report.ts",
     "bench:pin-image": "tsx scripts/pin-image.ts",
-    "bench:container-calibration": "tsx scripts/container-calibration.ts"
+    "bench:container-calibration": "tsx scripts/container-calibration.ts",
+    "bench:import-calibration": "tsx scripts/import-calibration.ts"
   },
   "keywords": [],
   "author": "",

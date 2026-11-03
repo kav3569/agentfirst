@@ -308,7 +308,7 @@ export default function Dashboard({ initial }: { initial: Report }) {
               <span className="strip-divider" />
               <span>{report.title}</span>
               <span className="subtle-pill">
-                {imported ? "Imported locally" : "Verified local run"}
+                {imported ? "Imported locally" : "Published report"}
               </span>
             </div>
             <span className="run-date">
@@ -552,11 +552,9 @@ export default function Dashboard({ initial }: { initial: Report }) {
                       <div className="readiness-line">
                         <span>Agent sandbox</span>
                         <span className="amber-text">
-                          {agentRows.some(
-                            (r) => r.category === "isolation-unavailable",
-                          )
-                            ? "Unavailable"
-                            : "See report"}
+                          {report.environment.imageDigest
+                            ? "Pinned image"
+                            : "Unavailable"}
                         </span>
                       </div>
                       <div className="readiness-line">

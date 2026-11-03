@@ -13,8 +13,10 @@ CSV formula protection, symlink/size limits, subprocess environment filtering,
 wall timeouts, and default opt-out behavior for live/paid requests. The application
 passes a TypeScript check and a production static build.
 
-The checked-in readiness report records those actual reference checks, plus 42
-blocked agent cells. It is not synthetic demo data and is not an agent-performance
+GitHub Actions run [41714749263](https://github.com/kav3569/agentfirst/actions/runs/41714749263)
+also compiled and ran all 14 reference modules in Docker. All passed; deliberately
+broken compile/runtime controls failed as expected. The imported CI readiness
+report records that actual isolated evidence, plus 42 blocked agent cells. It is not synthetic demo data and is not an agent-performance
 dataset. The public dashboard displays their distinction and offers local report
 import, per-task traces and JSON/CSV exports.
 
@@ -46,8 +48,8 @@ a hypothesis for a future paired experiment, not a result.
 - Imported generation metadata is self-reported. Public contract tests are not
   an adversarially secure grading protocol. Isolation protects the host but does
   not stop a malicious submission from spoofing a success marker.
-- Local Docker execution has not been verified here. The GitHub Actions container
-  job is designed to exercise it; check that job's outcome before trusting results.
+- Local Docker is unavailable. Isolated evaluation was verified by the linked
+  successful GitHub Actions job; its raw artifact is retained with the report.
 - No full browser accessibility audit has been performed. Responsive layout,
   labelled controls and normal keyboard access are included.
 

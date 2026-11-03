@@ -1,8 +1,42 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 import data from "../benchmark/results/readiness.json";
+import published from "../public/results.json";
 import { reportSchema, parseReport, passRate, csvExport } from "../lib/report";
 const report = reportSchema.parse(data);
+test("published CI evidence preserves calibration and has no measured agent passes", () => {
+  const current = reportSchema.parse(published);
+  assert.ok(current.environment.imageDigest);
+  assert.equal(
+    current.rows.filter(
+      (row) => row.configuration === "reference" && row.status === "passed",
+    ).length,
+    14,
+  );
+  assert.equal(
+    current.rows.filter(
+      (row) => row.configuration !== "reference" && row.status === "passed",
+    ).length,
+    0,
+  );
+});
+test("imported traces redact authorization headers and temporary tokens", () => {
+  const value = parseReport(
+    JSON.stringify({
+      ...report,
+      rows: [
+        {
+          ...report.rows[0],
+          trace:
+            "Authorization: Bearer secret-value https://example.test?token=private-token&ok=1",
+        },
+      ],
+    }),
+  );
+  assert.equal(value.rows[0].trace.includes("secret-value"), false);
+  assert.equal(value.rows[0].trace.includes("private-token"), false);
+  assert.ok(value.rows[0].trace.includes("ok=1"));
+});
 test("readiness report keeps reference successes out of agent comparisons", () => {
   assert.equal(
     passRate(report.rows.filter((r) => r.configuration === "baseline")),

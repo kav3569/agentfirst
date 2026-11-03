@@ -5,8 +5,10 @@ Compare **baseline**, a **pinned official skill**, and an **enhanced skill** on
 14 TypeScript integration tasks. A static Next.js dashboard displays validated
 JSON reports, task traces, failure categories, and JSON/CSV exports.
 
-**Current evidence:** 14/14 trusted reference contracts pass. The 42 agent cells
-are blocked because this machine has no Docker runtime. No coding-agent uplift,
+**Current evidence:** 14/14 trusted reference modules compile and pass in isolated
+Docker evaluation in [GitHub CI](https://github.com/kav3569/agentfirst/actions/runs/41714749263),
+including compile/runtime negative controls. The 42 agent cells are blocked
+pending generated agent outputs and model credentials. Local Docker is unavailable. No coding-agent uplift,
 live audio success, or paid usage is claimed. This is an independently built
 prototype, not an AssemblyAI-endorsed product.
 
@@ -21,6 +23,8 @@ npm test
 npm run build
 npm start
 ```
+
+Live dashboard: [agentfirst-three.vercel.app](https://agentfirst-three.vercel.app).
 
 Open http://localhost:3000. `npm start` serves the production static export;
 `npm run dev` enables development mode. Vercel hosts only `out/`, with no runner,

@@ -1,0 +1,127 @@
+{
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "linux/x64",
+    "commit": "d98450eae909ff6c0481718149d4d5b1d47c52d8",
+    "imageDigest": "sha256:4c3d0d52047bcf5f653baa220cddde96235b4918969b93b04b0a433b617ec5ab",
+    "officialSkillCommit": "97419c65a709f2bdeb2d017c466c906f370129c4",
+    "lockSha256": "3d8b49a491f6aea74d182ab7f8e266a4bb96cddb1433241f439ae62bb0576069",
+    "taskSuiteSha256": "64ee3e989cc25d0b6935705c6321d84f99e113ffd5a7dd25ff2fdccf79ebdaf2"
+  },
+  "results": [
+    {
+      "taskId": "transcription",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "upload",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "polling",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "streaming",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "turns",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "token",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "tts",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "tts-stream",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "voice-agent",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "retry",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "redaction",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "url-safety",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "cleanup",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "residency",
+      "code": 0,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAGENTFIRST_CHECK_PASSED\n",
+      "timedOut": false,
+      "overflow": false
+    },
+    {
+      "taskId": "negative-compile",
+      "code": 2,
+      "output": "../candidate/solution.ts(1,14): error TS2322: Type 'number' is not assignable to type 'string'.\n",
+      "timedOut": false,
+      "overflow": false,
+      "expectedFailure": true
+    },
+    {
+      "taskId": "negative-runtime",
+      "code": 1,
+      "output": "AGENTFIRST_COMPILE_PASSED\nAssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ []\n- [\n-   {\n-     text: 'Hello ',\n-     type: 'Generate'\n-   },\n-   {\n-     text: 'world.',\n-     type: 'Generate'\n-   },\n-   {\n-     type: 'Flush'\n-   }\n- ]\n\n    at tts-stream (file:///candidate/checks.mjs:160:12)\n    at file:///candidate/container-check.mjs:4:36\n",
+      "timedOut": false,
+      "overflow": false,
+      "expectedFailure": true
+    }
+  ]
+}
