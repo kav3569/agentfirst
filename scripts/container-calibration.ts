@@ -1,12 +1,10 @@
 import { tasks } from "../benchmark/tasks";
 import { dockerPreflight, read, save, environment } from "./common";
 import { evaluate } from "./sandbox";
+import { referenceSource } from "./reference-source";
 const preflight = await dockerPreflight();
 if (!preflight.ok) throw new Error(preflight.reason);
-const source = (await read("benchmark/fixtures/reference.ts")).replace(
-  "import type { Solution, RequestSpec } from '../contract';",
-  await read("benchmark/contract.ts"),
-);
+const source = await referenceSource();
 const results = [];
 for (const task of tasks) {
   const result = await evaluate(source, task.id, preflight.digest);
