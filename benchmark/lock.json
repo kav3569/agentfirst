@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "officialSkillCommit": "97419c65a709f2bdeb2d017c466c906f370129c4",
+  "officialSkillRepository": "https://github.com/AssemblyAI/assemblyai-skill.git",
+  "sdkRegistryVersionObserved": "4.42.0",
+  "nodeVersion": "24.21.0",
+  "typescriptVersion": "7.0.2",
+  "image": "agentfirst-runner:local",
+  "imageDigest": null,
+  "seed": 42,
+  "timeoutMs": 30000,
+  "memoryMb": 256,
+  "cpus": 0.5,
+  "maxOutputBytes": 65536,
+  "agentBudget": {
+    "maxWallSeconds": 180,
+    "maxOutputTokens": 6000,
+    "maxCostUsd": 0.5
+  },
+  "liveBudget": {
+    "maxRequests": 1,
+    "maxAudioSeconds": 5,
+    "maxTextCharacters": 32
+  },
+  "officialSkillTreeSha256": "4c1454d2dd8f06767db9b0f85a6e7ce0364c2f2260abef921475cdcf7fd858ac"
+}

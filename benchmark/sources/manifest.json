@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://www.assemblyai.com/docs/llms.txt",
+    "file": "llms.txt",
+    "sha256": "470cfda77ea78f4c4b83008edf0b9f2cc2687fe32c2402ac46e0339fdc1018ae",
+    "retrievedAt": "2026-11-03T20:06:25.799Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/getting-started/sdks.md",
+    "file": "getting-started_sdks.md",
+    "sha256": "a3ce96ecfd8caa29ace7e4b652407c44d8da8ea36379e6af56337571389b07f3",
+    "retrievedAt": "2026-11-03T20:06:26.203Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/streaming/authenticate-with-a-temporary-token.md",
+    "file": "streaming_authenticate-with-a-temporary-token.md",
+    "sha256": "e01ea530835e11cb86034f8b05e0d1ad2d7fc1eae153375176cbeeac907aed78",
+    "retrievedAt": "2026-11-03T20:06:26.356Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/streaming/api-spec/generate-streaming-token.md",
+    "file": "streaming_api-spec_generate-streaming-token.md",
+    "sha256": "2f7afd0ce69dbb84d90e84d3466c0d0eff473af4fed31f059155375217484dbc",
+    "retrievedAt": "2026-11-03T20:06:26.633Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/llms-full/text-to-speech-2.txt",
+    "file": "llms-full_text-to-speech-2.txt",
+    "sha256": "057f295bff57f2c83d1076efcb5314c3e39ebed1a887cd495fe15f2d986c9098",
+    "retrievedAt": "2026-11-03T20:06:27.661Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/llms-full/pre-recorded-stt-3.txt",
+    "file": "llms-full_pre-recorded-stt-3.txt",
+    "sha256": "716c1cacbd22ec4bfb579820d8718589abea2716401e92e320298d39e237b299",
+    "retrievedAt": "2026-11-03T20:06:28.247Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/llms-full/real-time-stt-2.txt",
+    "file": "llms-full_real-time-stt-2.txt",
+    "sha256": "350120820db9ea21bc970cff58b791fddb71568af9d68819727c12cd2ead213d",
+    "retrievedAt": "2026-11-03T20:06:28.714Z"
+  },
+  {
+    "url": "https://www.assemblyai.com/docs/coding-agent-prompts.md",
+    "file": "coding-agent-prompts.md",
+    "sha256": "a83cfe3926cf597fd88ac3999835633736ed3ca8387ed9a362456f07921650c8",
+    "retrievedAt": "2026-11-03T20:06:28.963Z"
+  }
+]

@@ -1,0 +1,12 @@
+work/
+outputs/
+.git/
+.github/
+.env*
+scripts/
+tests/
+docs/
+benchmark/**
+!benchmark/tasks.ts
+node_modules/
+*.tsbuildinfo

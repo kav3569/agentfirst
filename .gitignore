@@ -1,0 +1,15 @@
+node_modules/
+.next/
+out/
+work/
+outputs/
+.vercel/
+.env*
+!.env.example
+*.tsbuildinfo
+next-env.d.ts
+benchmark/skills/official/
+benchmark/sources/*
+!benchmark/sources/manifest.json
+benchmark/runs/
+benchmark/prepared/
