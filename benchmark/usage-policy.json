@@ -1,0 +1,14 @@
+{
+  "mode": "free-credits-only",
+  "maxOutOfPocketUsd": 0,
+  "paidFallbackAllowed": false,
+  "requireVerifiedCreditBalanceAndHardStop": true,
+  "allowedFreeTrialRun": {
+    "provider": "AssemblyAI",
+    "requiresUserConfirmedFreeAccountWithoutPaymentMethodOrAutoPay": true,
+    "maxSubmissions": 1,
+    "maxAudioSeconds": 10,
+    "requestCap": 32,
+    "paidFallbackAllowed": false
+  }
+}

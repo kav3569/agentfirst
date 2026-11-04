@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "node scripts/serve.mjs",
     "typecheck": "tsc --noEmit",
-    "test": "tsx --test tests/*.test.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
     "bench:prepare": "tsx scripts/prepare.ts",
     "bench:run": "tsx scripts/run.ts",
     "bench:calibrate": "tsx scripts/calibrate.ts",
@@ -16,7 +16,8 @@
     "bench:publish": "tsx scripts/publish-report.ts",
     "bench:pin-image": "tsx scripts/pin-image.ts",
     "bench:container-calibration": "tsx scripts/container-calibration.ts",
-    "bench:import-calibration": "tsx scripts/import-calibration.ts"
+    "bench:import-calibration": "tsx scripts/import-calibration.ts",
+    "bench:demo": "node --env-file=.env.local --import tsx scripts/transcribe-demo.ts"
   },
   "keywords": [],
   "author": "",

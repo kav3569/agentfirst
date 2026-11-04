@@ -1,5 +1,6 @@
 import { tokenRequest } from "../benchmark/fixtures/reference";
 import { safe, save, lock } from "./common";
+import { requireVerifiedFreeCredits } from "./usage-policy";
 // This smoke test intentionally mints a token only. It never starts billable audio.
 const enabled =
   process.env.AGENTFIRST_LIVE === "1" && process.argv.includes("--allow-live");
@@ -12,6 +13,7 @@ if (!enabled) {
   );
   process.exit(0);
 }
+requireVerifiedFreeCredits("AssemblyAI live smoke");
 if (!Number.isInteger(cap) || cap < 1 || cap > lock.liveBudget.maxRequests)
   throw new Error("Live request budget must be 1");
 const key = process.env.ASSEMBLYAI_API_KEY;

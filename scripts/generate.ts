@@ -2,6 +2,9 @@ import { mkdir, writeFile, access } from "node:fs/promises";
 import { resolve, join } from "node:path";
 import { tasks, configurations } from "../benchmark/tasks";
 import { root, read, sha, lock, save, dockerPreflight, safe } from "./common";
+import { requireVerifiedFreeCredits } from "./usage-policy";
+
+requireVerifiedFreeCredits("Model generation");
 // Trusted HTTP adapter: model output is saved as text and never evaluated here.
 // This is single-turn code generation, not a full Codex CLI/tool-use session.
 const arg = (name: string) => {

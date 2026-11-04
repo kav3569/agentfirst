@@ -11,8 +11,9 @@
    A fresh build can resolve newer OS packages; matching Dockerfile alone is not
    sufficient. For shared infrastructure, publish the image to your own registry
    and archive its digest. No registry credential belongs in the frontend.
-5. Run `npm run bench:container-calibration`. CI performs this check on Linux and
-   uploads all 14 reference results plus compile/runtime negative controls.
+5. Run `npm run bench:container-calibration`. CI performs this check on Linux and logs all 14 reference results plus
+   compile/runtime negative controls. New runs do not upload artifacts or create
+   dependency caches, to avoid unverified storage charges.
 
 ## Matched conditions
 
@@ -70,36 +71,53 @@ Docker runtime records preflight blockers and executes no candidates. Import
 the report in the dashboard locally, or explicitly publish it with
 `npm run bench:publish -- benchmark/results/my-run.json` then rebuild/deploy.
 
-## Optional paid generator
+## Free-credit-only execution
 
-Set `OPENAI_API_KEY` in your local environment or secret manager. Choose a model
-and verify its current input/output USD-per-million-token rate ceilings. The
-following uses environment values, not hardcoded or claimed current prices:
+The user has authorized **$0 out of pocket**, with free credits permitted.
+`benchmark/usage-policy.json` is the recorded policy. Estimated token costs
+and the nominal per-cell cap above do not authorize a charge to a payment method.
 
-```sh
-npm run bench:generate -- --allow-paid \
-  --model "$AGENTFIRST_MODEL" \
-  --input-usd-per-million "$AGENTFIRST_INPUT_RATE" \
-  --output-usd-per-million "$AGENTFIRST_OUTPUT_RATE" \
-  --max-total-usd 3 \
-  --out benchmark/runs/experiment-001
-```
+The legacy network adapters fail closed: the Responses generator and any
+explicit live AssemblyAI smoke opt-in stop before credential access or requests.
+`--allow-paid` cannot override the policy. Neither adapter currently verifies
+credit balance, expiry, other concurrent consumers, or an enforced no-charge
+cutoff. Supplying an API key or claiming a free balance is insufficient.
 
-This calls the [Responses API](https://developers.openai.com/api/docs/guides/text)
-once per cell with `store:false`, no tools, 6,000 maximum output tokens, and no
-automatic retries. It is not a full Codex run. Source text is saved but not run.
+Before enabling a provider-backed path, implement and verify provider-specific
+credit coverage and a hard stop that prevents paid fallback. Check any remote
+compute/CI/deployment allowance as well before starting further hosted jobs.
+Model generation remains blocked. No top-up, paid plan or paid fallback is
+authorized. No earlier positive spend estimate overrides this restriction.
 
-A conservative text-input reservation uses UTF-8 prompt bytes plus 4,096 protocol
-tokens and the full output cap. Positive caller-supplied rates are required; if
-they understate provider rates the monetary estimate is invalid. Reservations are
-persisted before requests and retained after errors/timeouts because an aborted
-request can still incur provider charges. Each invocation requires a fresh output
-directory, preventing silent overwrite or resetting the same ledger. Multiple
-invocations have independent budgets; the provider account's own spend controls
-are the account-wide backstop. The default $3 total can stop before completing all
-42 cells; raise it only with explicit paid-usage authorization. Failed/incomplete
-provider responses stop the run. Do not compare partially selected conditions as
-a complete experiment.
+### Bounded AssemblyAI free-trial demonstration
+
+The user confirmed an AssemblyAI free account with free credits, no payment
+method and no auto-pay, and authorized use of the local credential. The dedicated
+`npm run bench:demo` path processes the six-second WAV at
+`public/audio/integration-check.wav`. It validates PCM format and duration, requires
+that local confirmation, and exclusively creates
+`benchmark/runs/assemblyai-demo-reservation.json` before its first request.
+This file permits one submission across concurrent invocations and is retained
+after failure. It must not be deleted to silently retry or increase spending.
+
+The script loads `ASSEMBLYAI_API_KEY` from the ignored `.env.local` file. It
+sends the exact audio bytes to POST /v2/upload, submits once to POST /v2/transcript
+with an explicit model fallback list, then polls GET /v2/transcript/{id}. There
+are no submission retries; total HTTP requests are bounded to 32 and the job
+wait is bounded to 90 seconds. An existing provider job may finish after a
+client timeout, so a timeout must not trigger a second submission.
+
+`public/live-transcription.json` contains only the recorded transcript, word
+timestamps, model if returned, audio hash, request timing/status, and billing
+basis. It contains no credential, transcript identifier, or private upload URL.
+The provider did not return an exact credit debit; that metric remains null.
+`/integration` replays this evidence without making provider requests. The
+account type and billing configuration were confirmed by the user, not checked
+through an undocumented billing endpoint.
+
+The retained model adapter is a single-turn Responses API adapter, not a full
+Codex session. Its former paid invocation instructions have been removed to
+avoid implying paid-usage authorization. Actual agent comparisons remain pending.
 
 ## Report v1
 

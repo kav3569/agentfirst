@@ -1,0 +1,8 @@
+{
+  "sourceUrl": "https://assembly.ai/wildfires.mp3",
+  "sourceDescription": "Six-second excerpt from the official AssemblyAI documentation sample.",
+  "audioPath": "/audio/integration-check.wav",
+  "durationSeconds": 6,
+  "sampleRate": 16000,
+  "sha256": "78d361ea7f933fcde9a7b0850c662e6f2b0427f808a092f03aab9260119f5d70"
+}

@@ -20,11 +20,27 @@ report records that actual isolated evidence, plus 42 blocked agent cells. It is
 dataset. The public dashboard displays their distinction and offers local report
 import, per-task traces and JSON/CSV exports.
 
+## Actual AssemblyAI integration
+
+A six-second excerpt of the official documentation audio sample was uploaded,
+submitted and polled against the real API using the user-confirmed free account.
+AssemblyAI returned a completed transcript, 15 timestamped words and model
+`universal-3-5-pro`. Five HTTP requests returned 200; the recorded end-to-end
+latency was approximately 5.01 seconds. These observations describe one run,
+not a latency benchmark or accuracy study.
+
+The `/integration` experience replays the clip with clickable transcript words
+and publishes a sanitized request history. Playback does not make API calls.
+The exact credit debit was not provided by the API and remains unknown.
+The run was bounded to one transcription submission under the user-confirmed
+free-credit account without a payment method or auto-pay.
+
 ## What was not measured
 
 No agent-generated candidate was executed: the local machine has no Docker
-runtime, and the runner refuses a host fallback. No paid model generation or
-authenticated AssemblyAI API call was made. Baseline, official-skill and
+runtime, and the runner refuses a host fallback. No paid model generation was
+performed. The real API example above exercises trusted application code, not
+an independently generated coding-agent candidate. Baseline, official-skill and
 enhanced-skill pass rates are therefore **unavailable**. No improvement percentage,
 latency benefit, cost savings or efficacy conclusion is justified.
 
@@ -38,8 +54,9 @@ a hypothesis for a future paired experiment, not a result.
 - Mocked deterministic request/event logic cannot establish speech quality,
   audio playback correctness, reconnection behavior, deployment correctness of
   generated applications, or live STT/TTS/voice-agent end-to-end success.
-- The opt-in live smoke covers token minting only. Expanded live-audio tests need
-  consented fixtures, a spend-reserving gateway and explicit paid authorization.
+- One real prerecorded transcription is verified. Streaming, TTS and voice-agent
+  live behavior remain unverified. The legacy token-only smoke and paid model
+  generator remain blocked under the free-credit-only policy.
 - The optional API adapter is single-turn text generation, not a full Codex agent.
   Full coding-agent sessions must be run in external isolation and imported.
 - Generation is stochastic; repeated matched trials and uncertainty estimates
@@ -59,5 +76,6 @@ Provision Docker; pin and calibrate the image. Generate complete independent
 trials with a frozen agent/model and identical budgets, evaluate all 42 cells,
 retain raw artifacts privately and publish redacted result reports. Inspect
 per-task paired failures before revising the skill. Only report improvements
-supported by those measured trials. Run the optional token smoke with a local
-key; extend to billable audio only after choosing fixtures and authorizing a cap.
+supported by those measured trials. Any additional provider calls must fit
+verified free credits or the specifically confirmed free-account arrangement;
+paid fallback and out-of-pocket spending remain prohibited.

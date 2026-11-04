@@ -171,6 +171,15 @@ export default function Dashboard({ initial }: { initial: Report }) {
         </div>
         <div className="nav-caption">WORKSPACE</div>
         <nav>
+          <a
+            className="integration-nav"
+            href="/integration"
+            aria-label="Open the real AssemblyAI transcription demo"
+          >
+            <AudioLines size={18} />
+            <span>AssemblyAI demo</span>
+            <ArrowUpRight size={13} />
+          </a>
           {[
             { name: "Evaluations", icon: FlaskConical, view: "Overview" },
             { name: "Task suite", icon: ListChecks, view: "Task suite" },
@@ -224,6 +233,9 @@ export default function Dashboard({ initial }: { initial: Report }) {
             <strong>Evaluations</strong>
           </div>
           <div className="top-links">
+            <a href="/integration">
+              <AudioLines size={15} /> API demo <ArrowUpRight size={13} />
+            </a>
             <span className="local-indicator">
               <span className="online-dot" /> Static dashboard
             </span>

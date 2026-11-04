@@ -1,0 +1,151 @@
+{
+  "status": "completed",
+  "completedAt": "2026-11-04T19:04:55.354Z",
+  "provider": "AssemblyAI",
+  "audio": {
+    "path": "/audio/integration-check.wav",
+    "durationSeconds": 6,
+    "sha256": "78d361ea7f933fcde9a7b0850c662e6f2b0427f808a092f03aab9260119f5d70",
+    "sourceUrl": "https://assembly.ai/wildfires.mp3",
+    "description": "Six-second excerpt from the official AssemblyAI documentation sample."
+  },
+  "text": "Smoke from hundreds of wildfires in Canada is triggering air quality alerts throughout the U.S.",
+  "words": [
+    {
+      "text": "Smoke",
+      "start": 48,
+      "end": 535,
+      "confidence": 0.9578357
+    },
+    {
+      "text": "from",
+      "start": 745,
+      "end": 843,
+      "confidence": 0.99992716
+    },
+    {
+      "text": "hundreds",
+      "start": 1070,
+      "end": 1459,
+      "confidence": 0.9999796
+    },
+    {
+      "text": "of",
+      "start": 1491,
+      "end": 1637,
+      "confidence": 0.9999976
+    },
+    {
+      "text": "wildfires",
+      "start": 1654,
+      "end": 2189,
+      "confidence": 0.9999924
+    },
+    {
+      "text": "in",
+      "start": 2302,
+      "end": 2351,
+      "confidence": 0.9999912
+    },
+    {
+      "text": "Canada",
+      "start": 2464,
+      "end": 3016,
+      "confidence": 0.9999949
+    },
+    {
+      "text": "is",
+      "start": 3356,
+      "end": 3486,
+      "confidence": 0.999777
+    },
+    {
+      "text": "triggering",
+      "start": 3518,
+      "end": 3875,
+      "confidence": 0.9999893
+    },
+    {
+      "text": "air",
+      "start": 4070,
+      "end": 4118,
+      "confidence": 0.99896836
+    },
+    {
+      "text": "quality",
+      "start": 4248,
+      "end": 4670,
+      "confidence": 0.98023444
+    },
+    {
+      "text": "alerts",
+      "start": 4735,
+      "end": 5172,
+      "confidence": 0.9999794
+    },
+    {
+      "text": "throughout",
+      "start": 5221,
+      "end": 5610,
+      "confidence": 0.9999708
+    },
+    {
+      "text": "the",
+      "start": 5610,
+      "end": 5675,
+      "confidence": 0.9999336
+    },
+    {
+      "text": "U.S.",
+      "start": 5708,
+      "end": 5918,
+      "confidence": 0.98585504
+    }
+  ],
+  "speechModelUsed": "universal-3-5-pro",
+  "audioDurationSeconds": 6,
+  "latencyMs": 5011.297042,
+  "requests": [
+    {
+      "stage": "upload",
+      "method": "POST",
+      "path": "/v2/upload",
+      "httpStatus": 200,
+      "latencyMs": 554.037916
+    },
+    {
+      "stage": "submit",
+      "method": "POST",
+      "path": "/v2/transcript",
+      "httpStatus": 200,
+      "latencyMs": 234.930208
+    },
+    {
+      "stage": "poll",
+      "method": "GET",
+      "path": "/v2/transcript/{id}",
+      "httpStatus": 200,
+      "latencyMs": 63.793000000000006
+    },
+    {
+      "stage": "poll",
+      "method": "GET",
+      "path": "/v2/transcript/{id}",
+      "httpStatus": 200,
+      "latencyMs": 60.31737499999963
+    },
+    {
+      "stage": "poll",
+      "method": "GET",
+      "path": "/v2/transcript/{id}",
+      "httpStatus": 200,
+      "latencyMs": 93.70479100000011
+    }
+  ],
+  "billing": {
+    "mode": "free-credits-only",
+    "maxOutOfPocketUsd": 0,
+    "creditsDebitedUsd": null,
+    "basis": "User-confirmed free account without a payment method or auto-pay; provider did not report a credit debit amount."
+  }
+}

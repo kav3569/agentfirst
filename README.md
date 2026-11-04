@@ -5,11 +5,18 @@ Compare **baseline**, a **pinned official skill**, and an **enhanced skill** on
 14 TypeScript integration tasks. A static Next.js dashboard displays validated
 JSON reports, task traces, failure categories, and JSON/CSV exports.
 
-**Current evidence:** 14/14 trusted reference modules compile and pass in isolated
+**Real API demo:** [Play the AssemblyAI transcription](https://agentfirst-three.vercel.app/integration).
+A six-second documentation audio excerpt was uploaded and transcribed by AssemblyAI.
+The page replays the actual returned transcript and 15 word timestamps, with a
+request history and downloadable evidence. It consumes no credits on playback.
+The run used the user-confirmed free account, with no payment method or auto-pay.
+The API did not report the dollar value of credits deducted.
+
+**Benchmark evidence:** 14/14 trusted reference modules compile and pass in isolated
 Docker evaluation in [GitHub CI](https://github.com/kav3569/agentfirst/actions/runs/41714749263),
 including compile/runtime negative controls. The 42 agent cells are blocked
-pending generated agent outputs and model credentials. Local Docker is unavailable. No coding-agent uplift,
-live audio success, or paid usage is claimed. This is an independently built
+pending generated agent outputs and model credentials. Local Docker is unavailable.
+No coding-agent uplift is claimed. This is an independently built
 prototype, not an AssemblyAI-endorsed product.
 
 ## Start
@@ -64,29 +71,32 @@ Missing isolation fails closed. Missing/malformed outputs are blockers, compile
 or runtime assertion failures are scored failures. Blockers are never scored as
 passes or included in pass-rate denominators. Report completeness alongside rate.
 
-An optional **single-turn Responses API generator** is also provided. This is a
-bounded code-generation baseline, **not a Codex CLI agent session**. It needs an
-environment-provided `OPENAI_API_KEY`, Docker preflight, an explicit model, current
-price ceilings, and `--allow-paid`. Do not paste keys into chat or put them in
-command arguments. [Reproducibility](docs/reproducibility.md) documents the command,
-spend reservation ledger and limitations. It has not been run in this delivery.
+## Free-credit-only usage policy
 
-## Live smoke (opt in)
+The authorized out-of-pocket budget is **$0**. Paid fallback, top-ups, plan
+upgrades, and unverified metered requests are not authorized.
+`benchmark/usage-policy.json` records this policy. The paid model generator and
+legacy token-only smoke remain blocked, including when their opt-in flags are
+supplied. A dedicated transcription demo permits one clip of at most ten seconds
+only after the user confirms a free account with free credits, no payment method,
+and no auto-pay. This is a user-confirmed billing basis, not a programmatic
+balance verification. No billing configuration is changed.
 
-Set `ASSEMBLYAI_API_KEY` using your local secret manager or an untracked local
-environment file. Node's `--env-file=.env.local` can load it; the CLI does not
-automatically read Next.js environment files.
+Offline evaluation, report imports, and local tests remain available. The
+historical result cost fields and nominal token budgets describe estimates,
+not authorization to spend money. Full-agent execution and remote compute must
+also fit verified free credits or a verified free allowance before being started.
 
-```sh
-AGENTFIRST_LIVE=1 node --env-file=.env.local --import tsx scripts/live.ts --allow-live
-```
-
-The smoke makes **one authenticated temporary-token request**, discards the
-returned token, and never opens billable audio sessions. It validates auth and
-the current token endpoint only. STT, TTS, streaming and voice-agent live tests
-remain a documented limitation. The default command, `npm run bench:live`, skips
-all network requests. Repeated opt-ins are separate requests; there is no account-
-wide billing cap.
+The retained Responses adapter is single-turn code generation. It remains blocked.
+The default `npm run bench:live` skips all network requests. The separate
+`npm run bench:demo` loads the key from untracked `.env.local`, validates the
+clip, exclusively reserves one submission, uploads it, submits once, and polls
+with a 32-request/90-second limit. No automatic resubmission occurs, including
+after an error or timeout. The reservation survives failures. It has already
+been consumed by the recorded demo run; invoking the command again stops.
+Only the short sample and an allowlisted result are published; API credentials,
+upload URLs, and local account-confirmation files are excluded. See
+[reproducibility](docs/reproducibility.md) for experiment controls.
 
 ## Task coverage
 

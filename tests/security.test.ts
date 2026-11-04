@@ -46,14 +46,46 @@ test("live smoke is opt-in and makes no request by default", async () => {
   assert.equal(result.code, 0);
   assert.match(result.output, /SKIPPED/);
 });
-test("paid generation fails before network access without explicit opt-in", async () => {
+test("free-credit policy blocks generation before network access", async () => {
   const result = await command(
     process.execPath,
     ["--import", "tsx", "scripts/generate.ts"],
     5000,
   );
   assert.notEqual(result.code, 0);
-  assert.match(result.output, /requires --allow-paid/);
+  assert.match(result.output, /Free-credit-only policy/);
+});
+test("paid opt-in cannot override the zero out-of-pocket policy", async () => {
+  const result = await command(
+    process.execPath,
+    [
+      "--import",
+      "tsx",
+      "scripts/generate.ts",
+      "--allow-paid",
+      "--max-total-usd",
+      "100",
+    ],
+    5000,
+  );
+  assert.notEqual(result.code, 0);
+  assert.match(result.output, /Free-credit-only policy/);
+  assert.match(result.output, /--allow-paid cannot override/);
+});
+test("explicit live opt-in is blocked before credential access", async () => {
+  const result = await command(
+    process.execPath,
+    [
+      "--import",
+      "tsx",
+      "--input-type=module",
+      "-e",
+      'process.env.AGENTFIRST_LIVE="1"; process.argv.push("--allow-live"); await import("./scripts/live.ts");',
+    ],
+    5000,
+  );
+  assert.notEqual(result.code, 0);
+  assert.match(result.output, /Free-credit-only policy/);
 });
 test("frontend has no API routes or credential access", async () => {
   const source = await readFile(
